@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet-Work</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 150%;
+      background-image: url('background.jpg'); /* Animated animals background */
+      background-size: cover; /* Cover the entire background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      text-align: center;
+    }
+    #logo {
+      width: 60%;
+      border-radius: 60%; /* Make the logo circular */
+    }
+    #options {
+      margin-top: 50px;
+    }
+    .option {
+      display: inline-block;
+      margin: 0 40px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    .option:hover {
+      color: #ff1493;
+    }
+    .option img {
+      border-radius: 50%; /* Make all logos circular */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img id="logo" src="pet-owner logo.jpg" alt="Your Logo">
+    <div id="options">
+      <div class="option" onmouseover="changeColor('pet_owner')" onmouseout="resetColor('pet_owner')" onclick="redirectToLogin('pet_owner')">
+        <a href="pet_owner_login.html">
+          <img src="main logo.jpg" alt="" width="200">
+          <p>Sign in as Pet Owner</p>
+        </a>
+      </div>
+      <div class="option" onmouseover="changeColor('pet_lover')" onmouseout="resetColor('pet_lover')" onclick="redirectToLogin('pet_lover')">
+        <a href="pet_lover_login_page.html">
+          <img src="pet lover logo.jpg" alt="Pet Lover Logo" width="200">
+          <p>Sign in as Pet Lover</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function redirectToLogin(userType) {
+      if (userType === 'pet_owner') {
+        window.location.href = 'pet_owner_login.html'; // Redirect to pet owner login page
+      } else if (userType === 'pet_lover') {
+        window.location.href = 'pet_lover_login.html'; // Redirect to pet lover login page
+      }
+    }
+
+    function changeColor(type) {
+      var option = document.querySelector("." + type);
+      option.style.color = "#ff1493";
+    }
+
+    function resetColor(type) {
+      var option = document.querySelector("." + type);
+      option.style.color = "#000"; /* Change back to default color */
+    }
+  </script>
+</body>
+</html>
